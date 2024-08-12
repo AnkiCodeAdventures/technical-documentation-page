@@ -3,29 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href=""./styles.css" rel="stylesheet"/>
+    <link href="./styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Technical Documentation Page</title>
   </head>
   <body>
+    <nav id="navbar">
+      <header><h1>API Documentation</h1></header>
+      <ul class="nav-links-container">
+        <li><a class="nav-link" href="#introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#authentication">Authentication</a></li>
+        <li>
+          <a class="nav-link" href="#base_url_and_versioning"
+            >Base URL and Versioning
+          </a>
+        </li>
+        <li><a class="nav-link" href="#endpoints">Endpoints</a></li>
+        <li>
+          <a class="nav-link" href="#request_parameters">Request Parameters</a>
+        </li>
+        <li><a class="nav-link" href="#response_format">Response Format</a></li>
+        <li><a class="nav-link" href="#error_handling">Error Handling</a></li>
+        <li>
+          <a class="nav-link" href="#rate_limiting_and_throttling"
+            >Rate Limiting and Throttling</a
+          >
+        </li>
+        <li><a class="nav-link" href="#best_practices">Best Practices</a></li>
+      </ul>
+    </nav>
     <main id="main-doc">
-      <nav id="navbar">
-        <header>API Documentation for a RESTful Web Service</header>
-        <a class="nav-link" href="#introduction">Introduction</a>
-        <a class="nav-link" href="#authentication">Authentication</a>
-        <a class="nav-link" href="#base_url_and_versioning"
-          >Base URL and Versioning
-        </a>
-        <a class="nav-link" href="#endpoints">Endpoints</a>
-        <a class="nav-link" href="#request_parameters">Request Parameters</a>
-        <a class="nav-link" href="#response_format">Response Format</a>
-        <a class="nav-link" href="#error_handling">Error Handling</a>
-        <a class="nav-link" href="#rate_limiting_and_throttling"
-          >rate_limiting_and_throttling</a
-        >
-        <a class="nav-link" href="#best_practices">Best Practices</a>
-      </nav>
       <section class="main-section" id="introduction">
-        <header>Introduction</header>
+        <header><h2>Introduction</h2></header>
         <p>
           The introduction should provide a high-level overview of the API,
           including its purpose and the problems it addresses. Describe the
@@ -34,15 +48,19 @@
           offers and any prerequisites for using the API, such as familiarity
           with specific technologies or systems.
         </p>
-        <code>
-          fetch('https://api.example.com/v1/users', { method: 'GET', headers: {
-          'Authorization': 'Bearer YOUR_API_TOKEN' } }) .then(response =>
-          response.json()) .then(data => console.log(data)) .catch(error =>
-          console.error('Error:', error));
-        </code>
+        <pre><code>
+            fetch('https://api.example.com/v1/users', {
+                headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+            </code></pre>
       </section>
       <section class="main-section" id="authentication">
-        <header>Authentication</header>
+        <header>
+          <h2>Authentication</h2>
+        </header>
         <p>
           Authentication is critical to ensuring that only authorized users can
           access the API. This section should describe the methods of
@@ -61,15 +79,16 @@
           permissions and user delegation. Additionally, discuss how to refresh
           tokens or rotate API keys for enhanced security.
         </p>
-        <code>
-          fetch('https://api.example.com/v1/resource', { method: 'GET', headers:
-          { 'Authorization': 'Bearer YOUR_API_KEY' } }) .then(response =>
-          response.json()) .then(data => console.log(data)) .catch(error =>
-          console.error('Error:', error));
-        </code>
+        <pre><code>
+            fetch('https://api.example.com/v1/resource', {
+                headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+            })
+            </code></pre>
       </section>
       <section class="main-section" id="base_url_and_versioning">
-        <header>Base URL and Versioning</header>
+        <header>
+          <h2>Base URL and Versioning</h2>
+        </header>
         <p>
           This section outlines the base URL that clients should use to make
           requests to the API. If the API supports multiple versions, explain
@@ -78,15 +97,16 @@
           how long older versions will be supported and how developers can
           migrate to newer versions.
         </p>
-        <code>
-          fetch('https://api.example.com/v1/products', { method: 'GET', headers:
-          { 'Authorization': 'Bearer YOUR_API_TOKEN' } }) .then(response =>
-          response.json()) .then(data => console.log(data)) .catch(error =>
-          console.error('Error:', error));
-        </code>
+        <pre><code>
+            fetch('https://api.example.com/v1/products', {
+                headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+            })
+            </code></pre>
       </section>
       <section class="main-section" id="endpoints">
-        <header>Endpoints</header>
+        <header>
+          <h2>Endpoints</h2>
+        </header>
         <p>
           The endpoints section is the heart of the API documentation. Each
           endpoint should be documented with its HTTP method (GET, POST, PUT,
@@ -104,15 +124,24 @@
           tips on optimizing API usage, such as reducing the number of calls by
           using bulk operations where available.
         </p>
-        <code>
-          fetch('https://api.example.com/v1/products', { method: 'GET', headers:
-          { 'Authorization': 'Bearer YOUR_API_TOKEN' } }) .then(response =>
-          response.json()) .then(data => console.log(data)) .catch(error =>
-          console.error('Error:', error));
-        </code>
+        <pre><code>
+            fetch('https://api.example.com/v1/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer YOUR_API_TOKEN'
+                },
+                body: JSON.stringify({
+                    name: 'John Doe',
+                    email: 'john.doe@example.com'
+                })
+            })
+            </code></pre>
       </section>
       <section class="main-section" id="request_parameters">
-        <header>Request Parameters</header>
+        <header>
+          <h2>Request Parameters</h2>
+        </header>
         <p>
           This section should detail the parameters that can be passed with each
           API request. Differentiate between required and optional parameters,
@@ -131,9 +160,16 @@
           parameter validation, specifying what happens when invalid data is
           sent, and how to interpret the resulting error messages.
         </p>
+        <pre><code>
+            fetch('https://api.example.com/v1/users?role=admin&status=active', {
+                headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+            })
+            </code></pre>
       </section>
       <section class="main-section" id="response_format">
-        <header>Response Format</header>
+        <header>
+          <h2>Response Format</h2>
+        </header>
         <p>
           The response format section describes the structure of the data
           returned by the API. Typically, responses are in JSON format, but
@@ -151,16 +187,19 @@
           XML), provide details on how to request these formats and any
           differences in structure or content.
         </p>
-        <code>
-          fetch('https://api.example.com/v1/users', { method: 'GET', headers: {
-          'Authorization': 'Bearer YOUR_API_TOKEN' } }) .then(response => { if
-          (!response.ok) { throw new Error('Network response was not ok'); }
-          return response.json(); }) .then(data => console.log(data))
-          .catch(error => console.error('Error:', error));
-        </code>
+        <pre><code>
+            fetch('https://api.example.com/v1/users', {
+                headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+            </code></pre>
       </section>
       <section class="main-section" id="error_handling">
-        <header>Error Handling</header>
+        <header>
+          <h2>Error Handling</h2>
+        </header>
         <p>
           This section should provide a comprehensive list of possible error
           codes and their meanings. For each error, describe the scenarios in
@@ -170,9 +209,27 @@
           custom error codes specific to the API. Provide examples of error
           messages and suggestions for resolving the errors.
         </p>
+        <pre><code>
+            fetch('https://api.example.com/v1/users/123', {
+                headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errorData => {
+                        throw new Error(`Error: ${errorData.message}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+            </code></pre>
       </section>
+
       <section class="main-section" id="rate_limiting_and_throttling">
-        <header>Rate Limiting and Throttling</header>
+        <header>
+          <h2>Rate Limiting and Throttling</h2>
+        </header>
         <p>
           Rate limiting is used to prevent abuse of the API by limiting the
           number of requests a client can make within a given time period. This
@@ -183,10 +240,27 @@
           practices for handling these scenarios, such as implementing retry
           logic with exponential backoff.
         </p>
+        <pre><code>
+            fetch('https://api.example.com/v1/users', {
+                headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+            })
+            .then(response => {
+                if (response.status === 429) {
+                    console.error('Rate limit exceeded. Please try again later.');
+                } else {
+                    return response.json();
+                }
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+            </code></pre>
       </section>
+
       <section class="main-section" id="best_practices">
-        <header>Best Practices</header>
-        <ul>
+        <header>
+          <h2>Best Practices</h2>
+        </header>
+        <ul class="points">
           <li>
             Use pagination for endpoints that return large datasets to avoid
             performance issues.
